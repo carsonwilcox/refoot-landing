@@ -1,12 +1,22 @@
 import { useState } from 'react';
 
 export default function Home() {
-  const [color, setColor] = useState('black');
+  const [sockColor, setSockColor] = useState('black');
 
-  const imageMap = {
+  const sockImages = {
     black: '/images/sock-black.png',
     white: '/images/sock-white.png',
     green: '/images/sock-green.png',
+  };
+
+  const buttonStyle = {
+    padding: '0.5rem 1rem',
+    backgroundColor: '#222',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
   };
 
   return (
@@ -23,13 +33,12 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        REFOOT™ Recovery Socks
-      </h1>
-
-      <p style={{ maxWidth: '600px', marginBottom: '1.5rem' }}>
-        Recover stronger. Train smarter. Premium post-workout socks engineered
-        for athletes who demand more than just cotton.
+      <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>REFOOT™</h1>
+      <p style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
+        Performance recovery, re-engineered.
+      </p>
+      <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
+        Premium post-workout socks engineered for athletes who demand more than just cotton.
       </p>
 
       {/* Waitlist Signup Form */}
@@ -44,12 +53,7 @@ export default function Home() {
           marginBottom: '2rem',
         }}
       >
-        <input
-          type="hidden"
-          name="_next"
-          value="https://refootwear.com/thanks"
-        />
-        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://refootwear.com/thanks" />
         <input
           type="email"
           name="email"
@@ -81,22 +85,21 @@ export default function Home() {
         </button>
       </form>
 
-      <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '1rem' }}>
+      {/* Product Image with Color Selectors */}
+      <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '2rem' }}>
         <img
-          src={imageMap[color]}
-          alt={`REFOOT recovery sock - ${color}`}
+          src={sockImages[sockColor]}
+          alt={`REFOOT recovery sock - ${sockColor}`}
           style={{ maxWidth: '300px', height: 'auto' }}
         />
-      </div>
-
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <button onClick={() => setColor('black')} style={buttonStyle}>Black</button>
-        <button onClick={() => setColor('white')} style={buttonStyle}>White</button>
-        <button onClick={() => setColor('green')} style={buttonStyle}>Green</button>
+        <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+          <button style={buttonStyle} onClick={() => setSockColor('black')}>Black</button>
+          <button style={buttonStyle} onClick={() => setSockColor('white')}>White</button>
+          <button style={buttonStyle} onClick={() => setSockColor('green')}>Green</button>
+        </div>
       </div>
 
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
-
       <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
         <li>• Copper-infused zones reduce inflammation after workouts</li>
         <li>• Gradient compression supports circulation and muscle recovery</li>
@@ -110,13 +113,3 @@ export default function Home() {
     </main>
   );
 }
-
-const buttonStyle = {
-  padding: '0.5rem 1rem',
-  backgroundColor: '#222',
-  color: '#fff',
-  border: 'none',
-  borderRadius: '6px',
-  cursor: 'pointer',
-  fontWeight: 'bold',
-};
