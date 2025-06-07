@@ -22,28 +22,56 @@ export default function Home() {
         for athletes who demand more than just cotton.
       </p>
 
-      <button
+      {/* Waitlist Signup Form */}
+      <form
+        action="https://formsubmit.co/carson4wilcox@gmail.com"
+        method="POST"
         style={{
-          backgroundColor: '#00c853',
-          color: '#000',
-          padding: '0.75rem 1.5rem',
-          fontSize: '1rem',
-          fontWeight: 'bold',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1rem',
           marginBottom: '2rem',
         }}
       >
-        Join the Waitlist
-      </button>
+        <input type="hidden" name="_next" value="https://refootwear.com/thanks" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          style={{
+            padding: '0.75rem 1rem',
+            borderRadius: '8px',
+            border: 'none',
+            fontSize: '1rem',
+            width: '100%',
+            maxWidth: '300px',
+          }}
+        />
+        <button
+          type="submit"
+          style={{
+            backgroundColor: '#00c853',
+            color: '#000',
+            padding: '0.75rem 1.5rem',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+          }}
+        >
+          Join the Waitlist
+        </button>
+      </form>
 
-      {/* ✅ Corrected image tag */}
-      <div style={{ backgroundColor: '#111', padding: '1rem', marginBottom: '2rem' }}>
+      <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '2rem' }}>
         <img
           src="/images/sock.png"
           alt="REFOOT recovery sock"
-          style={{ maxWidth: '300px', width: '100%', height: 'auto' }}
+          style={{ maxWidth: '300px', height: 'auto' }}
         />
       </div>
 
