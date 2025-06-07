@@ -13,9 +13,11 @@ export default function Thanks() {
         textAlign: 'center',
       }}
     >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>You're on the list!</h1>
-      <p style={{ fontSize: '1rem' }}>
-        Thank you for joining the REFOOT waitlist. We'll keep you updated!
+      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
+        You&apos;re on the list!
+      </h1>
+      <p style={{ fontSize: '1rem', maxWidth: '500px' }}>
+        Thank you for joining the REFOOT waitlist. We&apos;ll keep you updated!
       </p>
     </main>
   );
