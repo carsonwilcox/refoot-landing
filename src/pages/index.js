@@ -3,7 +3,6 @@ import Head from 'next/head';
 
 export default function Home() {
   const [selectedColor, setSelectedColor] = useState('black');
-
   const imageSrc = `/images/sock-${selectedColor}.png`;
 
   return (
@@ -45,11 +44,7 @@ export default function Home() {
           marginBottom: '2rem',
         }}
       >
-        <input
-          type="hidden"
-          name="_next"
-          value="https://refootwear.com/thanks"
-        />
+        <input type="hidden" name="_next" value="https://refootwear.com/thanks" />
         <input
           type="email"
           name="email"
@@ -150,21 +145,24 @@ export default function Home() {
       </ul>
 
       {/* FAQ Section */}
-      <section style={{ marginTop: '3rem', maxWidth: '600px', textAlign: 'left' }}>
+      <section style={{ maxWidth: '600px', textAlign: 'left', marginTop: '3rem' }}>
         <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', textAlign: 'center' }}>
           Frequently Asked Questions
         </h2>
         <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: When will REFOOT socks be available?</strong>
-          <p>A: We're currently in development and expect to launch in late 2025. Join the waitlist to be the first to know!</p>
+          <strong>Q: When will REFOOT™ socks be available?</strong>
+          <p>A: We&apos;re finalizing production details and plan to launch later this year.</p>
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: What makes REFOOT socks different?</strong>
-          <p>A: Our socks combine copper-infused compression with breathable recovery zones—designed specifically for athletes post-workout.</p>
+          <strong>Q: What makes REFOOT™ different?</strong>
+          <p>
+            A: We blend medical-grade compression, copper infusion, and athlete-first
+            design—this isn&apos;t your average sock.
+          </p>
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: How can I support the launch?</strong>
-          <p>A: Sharing our site, joining the waitlist, and spreading the word on social media helps more than you know!</p>
+          <strong>Q: How will I know when they&apos;re ready?</strong>
+          <p>A: Join our waitlist and you&apos;ll be the first to know!</p>
         </div>
       </section>
 
