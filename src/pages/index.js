@@ -1,9 +1,12 @@
+// This new file will be the reworked main landing page for REFOOT
+// Focusing on performance socks for workout use
+
 import { useState } from 'react';
 import Head from 'next/head';
 
 export default function Home() {
   const [selectedColor, setSelectedColor] = useState('black');
-  const imageSrc = `/images/sock-${selectedColor}.png`;
+  const imageSrc = `/images/performance-sock-${selectedColor}.png`;
 
   return (
     <main
@@ -20,16 +23,16 @@ export default function Home() {
       }}
     >
       <Head>
-        <title>REFOOT™ Recovery Socks</title>
+        <title>REFOOT™ Performance Socks</title>
       </Head>
 
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        REFOOT™ Recovery Socks
+        REFOOT™ Performance Socks
       </h1>
 
       <p style={{ maxWidth: '600px', marginBottom: '1.5rem' }}>
-        Recover stronger. Train smarter. Premium post-workout socks engineered
-        for athletes who demand more than just cotton.
+        Built for movement. Designed for sweat. Performance-grade workout socks
+        that never quit before you do.
       </p>
 
       {/* Waitlist Signup Form */}
@@ -44,7 +47,11 @@ export default function Home() {
           marginBottom: '2rem',
         }}
       >
-        <input type="hidden" name="_next" value="https://refootwear.com/thanks" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://refootwear.com/thanks"
+        />
         <input
           type="email"
           name="email"
@@ -87,7 +94,7 @@ export default function Home() {
       >
         <img
           src={imageSrc}
-          alt="REFOOT recovery sock"
+          alt="REFOOT performance sock"
           style={{ maxWidth: '300px', height: 'auto' }}
         />
       </div>
@@ -108,9 +115,9 @@ export default function Home() {
           Black
         </button>
         <button
-          onClick={() => setSelectedColor('green')}
+          onClick={() => setSelectedColor('gray')}
           style={{
-            backgroundColor: selectedColor === 'green' ? '#00c853' : '#444',
+            backgroundColor: selectedColor === 'gray' ? '#00c853' : '#444',
             color: '#fff',
             border: 'none',
             borderRadius: '8px',
@@ -118,12 +125,12 @@ export default function Home() {
             cursor: 'pointer',
           }}
         >
-          Green
+          Gray
         </button>
         <button
-          onClick={() => setSelectedColor('white')}
+          onClick={() => setSelectedColor('neon')}
           style={{
-            backgroundColor: selectedColor === 'white' ? '#00c853' : '#444',
+            backgroundColor: selectedColor === 'neon' ? '#00c853' : '#444',
             color: '#fff',
             border: 'none',
             borderRadius: '8px',
@@ -131,40 +138,18 @@ export default function Home() {
             cursor: 'pointer',
           }}
         >
-          White
+          Neon
         </button>
       </div>
 
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
+      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>What Makes REFOOT Different?</h2>
 
       <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
-        <li>• Copper-infused zones reduce inflammation after workouts</li>
-        <li>• Gradient compression supports circulation and muscle recovery</li>
-        <li>• Breathable mesh and moisture control for all-day comfort</li>
-        <li>• Designed by athletes, for athletes</li>
+        <li>• Cushioned impact zones protect during lifts and runs</li>
+        <li>• Breathable mesh panels reduce overheating</li>
+        <li>• Arch compression boosts endurance</li>
+        <li>• Durable stitching for high-intensity sessions</li>
       </ul>
-
-      {/* FAQ Section */}
-      <section style={{ maxWidth: '600px', textAlign: 'left', marginTop: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', textAlign: 'center' }}>
-          Frequently Asked Questions
-        </h2>
-        <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: When will REFOOT™ socks be available?</strong>
-          <p>A: We&apos;re finalizing production details and plan to launch later this year.</p>
-        </div>
-        <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: What makes REFOOT™ different?</strong>
-          <p>
-            A: We blend medical-grade compression, copper infusion, and athlete-first
-            design—this isn&apos;t your average sock.
-          </p>
-        </div>
-        <div style={{ marginBottom: '1rem' }}>
-          <strong>Q: How will I know when they&apos;re ready?</strong>
-          <p>A: Join our waitlist and you&apos;ll be the first to know!</p>
-        </div>
-      </section>
 
       <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
         © 2025 REFOOT. All rights reserved.
