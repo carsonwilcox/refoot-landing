@@ -1,156 +1,99 @@
-import { useState } from 'react';
-import Head from 'next/head';
+import { useState } from 'react'
+import Head from 'next/head'
 
 export default function Home() {
-  const [selectedColor, setSelectedColor] = useState('black');
-  const imageSrc = `/images/sock-${selectedColor}.png`;
+  const [selectedColor, setSelectedColor] = useState('black')
+  const imageSrc = `/images/performance-sock-${selectedColor}.png`
 
   return (
-    <main
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#000',
-        color: '#fff',
-        minHeight: '100vh',
-        padding: '2rem',
-        textAlign: 'center',
-      }}
-    >
+    <>
       <Head>
         <title>REFOOT™ Performance Socks</title>
       </Head>
 
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        REFOOT™ Performance Socks
-      </h1>
-
-      <p style={{ maxWidth: '600px', marginBottom: '1.5rem' }}>
-        Built for athletes who never slow down. Our performance socks deliver the comfort,
-        grip, and durability needed to train at your highest level.
-      </p>
-
-      {/* Waitlist Signup Form */}
-      <form
-        action="https://formsubmit.co/carson4wilcox@gmail.com"
-        method="POST"
+      <main
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '1rem',
-          marginBottom: '2rem',
+          justifyContent: 'center',
+          backgroundColor: '#000',
+          color: '#fff',
+          minHeight: '100vh',
+          padding: '2rem',
+          textAlign: 'center',
         }}
       >
-        <input
-          type="hidden"
-          name="_next"
-          value="https://refootwear.com/thanks"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          required
-          style={{
-            padding: '0.75rem 1rem',
-            borderRadius: '8px',
-            border: 'none',
-            fontSize: '1rem',
-            width: '100%',
-            maxWidth: '300px',
-          }}
-        />
-        <button
-          type="submit"
-          style={{
-            backgroundColor: '#00c853',
-            color: '#000',
-            padding: '0.75rem 1.5rem',
-            fontSize: '1rem',
-            fontWeight: 'bold',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-          }}
-        >
-          Join the Waitlist
-        </button>
-      </form>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+          REFOOT™ Performance Socks
+        </h1>
 
-      {/* Product Image */}
-      <div
-        style={{
-          backgroundColor: '#111',
-          padding: '1rem',
-          borderRadius: '12px',
-          marginBottom: '1rem',
-        }}
-      >
+        <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
+          Power through every rep. Durable, breathable, and engineered to perform
+          under pressure.
+        </p>
+
+        {/* Color Picker */}
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+          {['black', 'white', 'green'].map((color) => (
+            <button
+              key={color}
+              onClick={() => setSelectedColor(color)}
+              style={{
+                padding: '0.5rem 1rem',
+                background: selectedColor === color ? '#444' : '#222',
+                border: '1px solid #555',
+                borderRadius: '4px',
+                color: '#fff',
+                cursor: 'pointer',
+              }}
+            >
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Sock Image */}
         <img
           src={imageSrc}
-          alt="REFOOT performance sock"
-          style={{ maxWidth: '300px', height: 'auto' }}
+          alt={`Performance sock in ${selectedColor}`}
+          style={{ maxWidth: '300px', marginBottom: '2rem' }}
         />
-      </div>
 
-      {/* Color Buttons */}
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <button
-          onClick={() => setSelectedColor('black')}
-          style={{
-            backgroundColor: selectedColor === 'black' ? '#00c853' : '#444',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '0.5rem 1rem',
-            cursor: 'pointer',
-          }}
+        {/* Waitlist Signup Form */}
+        <form
+          action="https://formsubmit.co/you@yourdomain.com"
+          method="POST"
+          style={{ display: 'flex', gap: '0.5rem' }}
         >
-          Black
-        </button>
-        <button
-          onClick={() => setSelectedColor('green')}
-          style={{
-            backgroundColor: selectedColor === 'green' ? '#00c853' : '#444',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '0.5rem 1rem',
-            cursor: 'pointer',
-          }}
-        >
-          Green
-        </button>
-        <button
-          onClick={() => setSelectedColor('white')}
-          style={{
-            backgroundColor: selectedColor === 'white' ? '#00c853' : '#444',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '0.5rem 1rem',
-            cursor: 'pointer',
-          }}
-        >
-          White
-        </button>
-      </div>
-
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
-
-      <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
-        <li>• Anti-slip grip zones for maximum traction</li>
-        <li>• Breathable mesh to reduce heat and sweat buildup</li>
-        <li>• Durable stitching to survive your toughest workouts</li>
-        <li>• Cushioned arch and heel support</li>
-      </ul>
-
-      <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
-        © 2025 REFOOT. All rights reserved.
-      </footer>
-    </main>
-  );
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Your email"
+            style={{
+              padding: '0.5rem',
+              borderRadius: '4px',
+              border: '1px solid #555',
+              background: '#111',
+              color: '#fff',
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '4px',
+              border: 'none',
+              background: '#0a84ff',
+              color: '#fff',
+              cursor: 'pointer',
+            }}
+          >
+            Join Waitlist
+          </button>
+        </form>
+      </main>
+    </>
+  )
 }
