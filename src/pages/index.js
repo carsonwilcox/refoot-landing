@@ -33,6 +33,17 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
+      <div style={{
+        backgroundColor: '#00c853',
+        color: '#000',
+        fontWeight: 'bold',
+        padding: '0.5rem 1.5rem',
+        borderRadius: '12px',
+        marginBottom: '1rem',
+      }}>
+        🚀 Launching Summer 2025 – Join the Waitlist Today!
+      </div>
+
       <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>REFOOT™</h1>
       <p style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>
         Performance recovery, re-engineered.
@@ -40,6 +51,11 @@ export default function Home() {
       <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
         Premium post-workout socks engineered for athletes who demand more than just cotton.
       </p>
+
+      {/* Fake quote testimonial */}
+      <blockquote style={{ fontStyle: 'italic', color: '#ccc', marginBottom: '2rem' }}>
+        “Finally, socks that help you bounce back faster.” — Athlete Weekly
+      </blockquote>
 
       {/* Waitlist Signup Form */}
       <form
