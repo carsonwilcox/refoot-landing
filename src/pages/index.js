@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 
 export default function Home() {
@@ -6,7 +7,8 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
 
   const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
   };
 
   const handleSubmit = (e) => {
@@ -33,6 +35,10 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
+      <Head>
+        <title>REFOOT™ Recovery Socks</title>
+      </Head>
+
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
         REFOOT™ Recovery Socks
       </h1>
@@ -42,7 +48,6 @@ export default function Home() {
         for athletes who demand more than just cotton.
       </p>
 
-      {/* Waitlist Signup Form */}
       <form
         action="https://formsubmit.co/carson4wilcox@gmail.com"
         method="POST"
@@ -55,17 +60,13 @@ export default function Home() {
           marginBottom: '2rem',
         }}
       >
-        <input
-          type="hidden"
-          name="_next"
-          value="https://refootwear.com/thanks"
-        />
+        <input type="hidden" name="_next" value="https://refootwear.com/thanks" />
         <input
           type="email"
           name="email"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
           required
           style={{
             padding: '0.75rem 1rem',
@@ -76,8 +77,12 @@ export default function Home() {
             maxWidth: '300px',
           }}
         />
-        {error && <p style={{ color: 'red', margin: 0 }}>{error}</p>}
-        {submitted && <p style={{ color: '#00c853', margin: 0 }}>You're on the list!</p>}
+        {error && <p style={{ color: 'red', fontSize: '0.9rem' }}>{error}</p>}
+        {submitted && (
+          <p style={{ color: '#00c853', fontSize: '0.9rem' }}>
+            &#10003; You&#39;re on the list!
+          </p>
+        )}
         <button
           type="submit"
           style={{
@@ -97,24 +102,39 @@ export default function Home() {
 
       <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '2rem' }}>
         <img
-          src="/images/sock-black.png"
+          src="/images/black-sock.png"
           alt="REFOOT recovery sock"
           style={{ maxWidth: '300px', height: 'auto' }}
         />
       </div>
 
+      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+        <button onClick={() => setEmail('')} style={colorButtonStyle}>Black</button>
+        <button onClick={() => setEmail('')} style={colorButtonStyle}>White</button>
+        <button onClick={() => setEmail('')} style={colorButtonStyle}>Green</button>
+      </div>
+
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
 
       <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
-        <li>• Copper-infused zones reduce inflammation after workouts</li>
-        <li>• Gradient compression supports circulation and muscle recovery</li>
-        <li>• Breathable mesh and moisture control for all-day comfort</li>
-        <li>• Designed by athletes, for athletes</li>
+        <li>&bull; Copper-infused zones reduce inflammation after workouts</li>
+        <li>&bull; Gradient compression supports circulation and muscle recovery</li>
+        <li>&bull; Breathable mesh and moisture control for all-day comfort</li>
+        <li>&bull; Designed by athletes, for athletes</li>
       </ul>
 
       <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
-        © 2025 REFOOT. All rights reserved.
+        &copy; 2025 REFOOT. All rights reserved.
       </footer>
     </main>
   );
 }
+
+const colorButtonStyle = {
+  backgroundColor: '#222',
+  color: '#fff',
+  padding: '0.5rem 1rem',
+  border: '1px solid #555',
+  borderRadius: '6px',
+  cursor: 'pointer',
+};
