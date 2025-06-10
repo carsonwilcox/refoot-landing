@@ -1,14 +1,6 @@
-import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
-  const [selectedColor, setSelectedColor] = useState('black');
-
-  const sockImages = {
-    black: '/images/sock-black.png',
-    green: '/images/sock-green.png',
-    white: '/images/sock-white.png',
-  };
-
   return (
     <main
       style={{
@@ -80,47 +72,69 @@ export default function Home() {
         </button>
       </form>
 
-      {/* Sock Display with Color Selection */}
-      <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '1rem' }}>
-        <img
-          src={sockImages[selectedColor]}
-          alt={`REFOOT recovery sock - ${selectedColor}`}
-          style={{ maxWidth: '300px', height: 'auto' }}
+      <div
+        style={{
+          backgroundColor: '#111',
+          padding: '1rem',
+          borderRadius: '12px',
+          marginBottom: '1rem',
+        }}
+      >
+        <Image
+          src="/images/sock-black.png"
+          alt="REFOOT recovery sock"
+          width={300}
+          height={300}
         />
-      </div>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <button onClick={() => setSelectedColor('black')} style={{ padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer' }}>Black</button>
-        <button onClick={() => setSelectedColor('green')} style={{ padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer' }}>Green</button>
-        <button onClick={() => setSelectedColor('white')} style={{ padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer' }}>White</button>
       </div>
 
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
 
-      <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem', marginBottom: '2rem' }}>
+      <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
         <li>• Copper-infused zones reduce inflammation after workouts</li>
         <li>• Gradient compression supports circulation and muscle recovery</li>
         <li>• Breathable mesh and moisture control for all-day comfort</li>
         <li>• Designed by athletes, for athletes</li>
       </ul>
 
-      {/* Testimonials Section */}
-      <section style={{ maxWidth: '700px', marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>What Athletes Are Saying</h2>
-        <blockquote style={{ fontStyle: 'italic', marginBottom: '1rem' }}>
-          "These socks changed how I recover after training. No more sore arches."<br />
-          <span style={{ fontWeight: 'bold' }}>— Jordan, CrossFit Coach</span>
-        </blockquote>
-        <blockquote style={{ fontStyle: 'italic', marginBottom: '1rem' }}>
-          "It’s like compression sleeves for my feet. I wear them after every run."<br />
-          <span style={{ fontWeight: 'bold' }}>— Taylor, Marathoner</span>
-        </blockquote>
-        <blockquote style={{ fontStyle: 'italic' }}>
-          "Honestly, I didn’t expect socks to help recovery, but these really do."<br />
-          <span style={{ fontWeight: 'bold' }}>— Chris, Collegiate Wrestler</span>
-        </blockquote>
-      </section>
+      <div
+        style={{
+          marginTop: '2rem',
+          display: 'flex',
+          gap: '1rem',
+          justifyContent: 'center',
+        }}
+      >
+        <button
+          onClick={() => {
+            const img = document.getElementById('sock-image');
+            img.src = '/images/sock-black.png';
+          }}
+          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
+        >
+          Black
+        </button>
+        <button
+          onClick={() => {
+            const img = document.getElementById('sock-image');
+            img.src = '/images/sock-green.png';
+          }}
+          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
+        >
+          Green
+        </button>
+        <button
+          onClick={() => {
+            const img = document.getElementById('sock-image');
+            img.src = '/images/sock-white.png';
+          }}
+          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
+        >
+          White
+        </button>
+      </div>
 
-      <footer style={{ fontSize: '0.875rem' }}>
+      <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
         © 2025 REFOOT. All rights reserved.
       </footer>
     </main>
