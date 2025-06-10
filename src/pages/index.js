@@ -1,6 +1,11 @@
-import Image from 'next/image';
+import { useState } from 'react';
+import Head from 'next/head';
 
 export default function Home() {
+  const [selectedColor, setSelectedColor] = useState('black');
+
+  const imageSrc = `/images/sock-${selectedColor}.png`;
+
   return (
     <main
       style={{
@@ -15,6 +20,10 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
+      <Head>
+        <title>REFOOT™ Recovery Socks</title>
+      </Head>
+
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
         REFOOT™ Recovery Socks
       </h1>
@@ -72,6 +81,7 @@ export default function Home() {
         </button>
       </form>
 
+      {/* Product Image */}
       <div
         style={{
           backgroundColor: '#111',
@@ -80,12 +90,54 @@ export default function Home() {
           marginBottom: '1rem',
         }}
       >
-        <Image
-          src="/images/sock-black.png"
+        <img
+          src={imageSrc}
           alt="REFOOT recovery sock"
-          width={300}
-          height={300}
+          style={{ maxWidth: '300px', height: 'auto' }}
         />
+      </div>
+
+      {/* Color Buttons */}
+      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+        <button
+          onClick={() => setSelectedColor('black')}
+          style={{
+            backgroundColor: selectedColor === 'black' ? '#00c853' : '#444',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '0.5rem 1rem',
+            cursor: 'pointer',
+          }}
+        >
+          Black
+        </button>
+        <button
+          onClick={() => setSelectedColor('green')}
+          style={{
+            backgroundColor: selectedColor === 'green' ? '#00c853' : '#444',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '0.5rem 1rem',
+            cursor: 'pointer',
+          }}
+        >
+          Green
+        </button>
+        <button
+          onClick={() => setSelectedColor('white')}
+          style={{
+            backgroundColor: selectedColor === 'white' ? '#00c853' : '#444',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '0.5rem 1rem',
+            cursor: 'pointer',
+          }}
+        >
+          White
+        </button>
       </div>
 
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
@@ -96,43 +148,6 @@ export default function Home() {
         <li>• Breathable mesh and moisture control for all-day comfort</li>
         <li>• Designed by athletes, for athletes</li>
       </ul>
-
-      <div
-        style={{
-          marginTop: '2rem',
-          display: 'flex',
-          gap: '1rem',
-          justifyContent: 'center',
-        }}
-      >
-        <button
-          onClick={() => {
-            const img = document.getElementById('sock-image');
-            img.src = '/images/sock-black.png';
-          }}
-          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
-        >
-          Black
-        </button>
-        <button
-          onClick={() => {
-            const img = document.getElementById('sock-image');
-            img.src = '/images/sock-green.png';
-          }}
-          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
-        >
-          Green
-        </button>
-        <button
-          onClick={() => {
-            const img = document.getElementById('sock-image');
-            img.src = '/images/sock-white.png';
-          }}
-          style={{ padding: '0.5rem 1rem', borderRadius: '8px' }}
-        >
-          White
-        </button>
-      </div>
 
       <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
         © 2025 REFOOT. All rights reserved.
