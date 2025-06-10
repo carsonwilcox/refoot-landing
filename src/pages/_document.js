@@ -1,12 +1,29 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html>
       <Head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-6ZQFV14TZZ"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6ZQFV14TZZ', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        <link rel="icon" href="/favicon.png" />
       </Head>
-      <body className="antialiased">
+      <body>
         <Main />
         <NextScript />
       </body>
