@@ -1,12 +1,9 @@
-// This new file will be the reworked main landing page for REFOOT
-// Focusing on performance socks for workout use
-
 import { useState } from 'react';
 import Head from 'next/head';
 
 export default function Home() {
   const [selectedColor, setSelectedColor] = useState('black');
-  const imageSrc = `/images/performance-sock-${selectedColor}.png`;
+  const imageSrc = `/images/sock-${selectedColor}.png`;
 
   return (
     <main
@@ -31,8 +28,8 @@ export default function Home() {
       </h1>
 
       <p style={{ maxWidth: '600px', marginBottom: '1.5rem' }}>
-        Built for movement. Designed for sweat. Performance-grade workout socks
-        that never quit before you do.
+        Built for athletes who never slow down. Our performance socks deliver the comfort,
+        grip, and durability needed to train at your highest level.
       </p>
 
       {/* Waitlist Signup Form */}
@@ -115,9 +112,9 @@ export default function Home() {
           Black
         </button>
         <button
-          onClick={() => setSelectedColor('gray')}
+          onClick={() => setSelectedColor('green')}
           style={{
-            backgroundColor: selectedColor === 'gray' ? '#00c853' : '#444',
+            backgroundColor: selectedColor === 'green' ? '#00c853' : '#444',
             color: '#fff',
             border: 'none',
             borderRadius: '8px',
@@ -125,12 +122,12 @@ export default function Home() {
             cursor: 'pointer',
           }}
         >
-          Gray
+          Green
         </button>
         <button
-          onClick={() => setSelectedColor('neon')}
+          onClick={() => setSelectedColor('white')}
           style={{
-            backgroundColor: selectedColor === 'neon' ? '#00c853' : '#444',
+            backgroundColor: selectedColor === 'white' ? '#00c853' : '#444',
             color: '#fff',
             border: 'none',
             borderRadius: '8px',
@@ -138,17 +135,17 @@ export default function Home() {
             cursor: 'pointer',
           }}
         >
-          Neon
+          White
         </button>
       </div>
 
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>What Makes REFOOT Different?</h2>
+      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
 
       <ul style={{ listStyle: 'none', padding: 0, fontSize: '1rem' }}>
-        <li>• Cushioned impact zones protect during lifts and runs</li>
-        <li>• Breathable mesh panels reduce overheating</li>
-        <li>• Arch compression boosts endurance</li>
-        <li>• Durable stitching for high-intensity sessions</li>
+        <li>• Anti-slip grip zones for maximum traction</li>
+        <li>• Breathable mesh to reduce heat and sweat buildup</li>
+        <li>• Durable stitching to survive your toughest workouts</li>
+        <li>• Cushioned arch and heel support</li>
       </ul>
 
       <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
