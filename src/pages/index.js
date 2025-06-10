@@ -1,14 +1,19 @@
-// Temp update to trigger git commit
-
-import Head from 'next/head';
 import { useState } from 'react';
-export default function Home() {
-  const [sockColor, setSockColor] = useState('black');
 
-  const imageMap = {
-    black: '/images/black-sock.png',
-    white: '/images/white-sock.png',
-    green: '/images/green-sock.png',
+export default function Home() {
+  const [color, setColor] = useState('black');
+
+  const getImageSrc = () => {
+    switch (color) {
+      case 'black':
+        return '/images/sock-black.png';
+      case 'white':
+        return '/images/sock-white.png';
+      case 'green':
+        return '/images/sock-green.png';
+      default:
+        return '/images/sock-black.png';
+    }
   };
 
   return (
@@ -25,12 +30,6 @@ export default function Home() {
         textAlign: 'center',
       }}
     >
-      <Head>
-        <title>REFOOT™ Recovery Socks</title>
-        <meta name="description" content="Premium recovery socks for athletes" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
         REFOOT™ Recovery Socks
       </h1>
@@ -90,16 +89,16 @@ export default function Home() {
 
       <div style={{ backgroundColor: '#111', padding: '1rem', borderRadius: '12px', marginBottom: '1rem' }}>
         <img
-          src={imageMap[sockColor]}
-          alt={`REFOOT ${sockColor} sock`}
+          src={getImageSrc()}
+          alt="REFOOT recovery sock"
           style={{ maxWidth: '300px', height: 'auto' }}
         />
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <button onClick={() => setSockColor('black')} style={buttonStyle}>Black</button>
-        <button onClick={() => setSockColor('white')} style={buttonStyle}>White</button>
-        <button onClick={() => setSockColor('green')} style={buttonStyle}>Green</button>
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem' }}>
+        <button onClick={() => setColor('black')} style={getButtonStyle(color === 'black')}>Black</button>
+        <button onClick={() => setColor('white')} style={getButtonStyle(color === 'white')}>White</button>
+        <button onClick={() => setColor('green')} style={getButtonStyle(color === 'green')}>Green</button>
       </div>
 
       <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Why REFOOT?</h2>
@@ -118,11 +117,13 @@ export default function Home() {
   );
 }
 
-const buttonStyle = {
-  backgroundColor: '#222',
-  color: '#fff',
-  padding: '0.5rem 1rem',
-  borderRadius: '8px',
-  border: '1px solid #555',
-  cursor: 'pointer',
-};
+function getButtonStyle(active) {
+  return {
+    padding: '0.5rem 1rem',
+    borderRadius: '6px',
+    border: 'none',
+    backgroundColor: active ? '#00c853' : '#333',
+    color: active ? '#000' : '#fff',
+    cursor: 'pointer',
+  };
+}
