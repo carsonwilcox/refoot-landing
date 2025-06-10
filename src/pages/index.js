@@ -149,6 +149,25 @@ export default function Home() {
         <li>• Designed by athletes, for athletes</li>
       </ul>
 
+      {/* FAQ Section */}
+      <section style={{ marginTop: '3rem', maxWidth: '600px', textAlign: 'left' }}>
+        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', textAlign: 'center' }}>
+          Frequently Asked Questions
+        </h2>
+        <div style={{ marginBottom: '1rem' }}>
+          <strong>Q: When will REFOOT socks be available?</strong>
+          <p>A: We're currently in development and expect to launch in late 2025. Join the waitlist to be the first to know!</p>
+        </div>
+        <div style={{ marginBottom: '1rem' }}>
+          <strong>Q: What makes REFOOT socks different?</strong>
+          <p>A: Our socks combine copper-infused compression with breathable recovery zones—designed specifically for athletes post-workout.</p>
+        </div>
+        <div style={{ marginBottom: '1rem' }}>
+          <strong>Q: How can I support the launch?</strong>
+          <p>A: Sharing our site, joining the waitlist, and spreading the word on social media helps more than you know!</p>
+        </div>
+      </section>
+
       <footer style={{ marginTop: '3rem', fontSize: '0.875rem' }}>
         © 2025 REFOOT. All rights reserved.
       </footer>
