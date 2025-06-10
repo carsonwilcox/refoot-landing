@@ -2,14 +2,14 @@ import { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+export default function Recovery() {
   const [selectedColor, setSelectedColor] = useState('black')
-  const imageSrc = `/images/performance-sock-${selectedColor}.png`
+  const imageSrc = `/images/recovery-sock-${selectedColor}.png`
 
   return (
     <>
       <Head>
-        <title>REFOOT™ Performance Socks</title>
+        <title>REFOOT™ Recovery Socks</title>
       </Head>
 
       {/* top-left nav */}
@@ -23,12 +23,12 @@ export default function Home() {
         }}
       >
         <Link href="/" legacyBehavior>
-          <a style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>
+          <a style={{ color: '#fff', textDecoration: 'none' }}>
             Performance
           </a>
         </Link>
         <Link href="/recovery" legacyBehavior>
-          <a style={{ color: '#fff', textDecoration: 'none' }}>
+          <a style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>
             Recovery
           </a>
         </Link>
@@ -48,12 +48,12 @@ export default function Home() {
         }}
       >
         <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-          REFOOT™ Performance Socks
+          REFOOT™ Recovery Socks
         </h1>
 
         <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
-          Power through every rep. Durable, breathable, and engineered to perform
-          under pressure.
+          Help your muscles recover faster. Cushioned, supportive, and built
+          for comfort after the grind.
         </p>
 
         {/* Color Picker */}
@@ -79,7 +79,7 @@ export default function Home() {
         {/* Sock Image */}
         <img
           src={imageSrc}
-          alt={`Performance sock in ${selectedColor}`}
+          alt={`Recovery sock in ${selectedColor}`}
           style={{ maxWidth: '300px', marginBottom: '2rem' }}
         />
 
